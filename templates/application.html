@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Graduate Application Form</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>Graduate Application Form</h1>
+    <form method="POST" action="/application/new">
+
+        <h2>Personal Information</h2>
+        <p1>First Name:</p1>
+        <input type="text" name="fname" required><br>
+        
+        <p1>Last Name:</p1>
+        <input type="text" name="lname" required><br>
+
+        <p1>Social Security Number:</p1>
+        <input type="text" name="ssn" required><br>
+
+        <p1>Address:</p1>
+        <input type="text" name="address" required><br>
+
+        <p1>Phone Number:</p1>
+        <input type="text" name="phone"><br>
+
+        <p1>Email:</p1>
+        <input type="email" name="email"><br>
+        <br>
+
+        <h2>Academic Information</h2>
+
+        <p1>Degree Sought:</p1>
+        <select name="degree_sought" required>
+            <option value="MS">MS</option>
+            <option value="PhD">PhD</option>
+        </select><br>
+
+        <p1>Admission Term:</p1>
+        <select name="admission_term" required>
+            <option value="Spring">Spring</option>
+            <option value="Fall">Fall</option>
+        </select><br>
+
+        <p1>Admission Year:</p1>
+        <input type="number" name="admission_year" required><br>
+
+        <p1>GRE Verbal Score:</p1>
+        <input type="number" name="gre_verbal"><br>
+
+        <p1>GRE Quantitative Score:</p1>
+        <input type="number" name="gre_quantitative"><br>
+
+        <p1>GRE Subject (if applicable):</p1>
+        <input type="number" name="gre_subject"><br>
+        <br>
+
+        <pr>Prior Work Experience:</pr>
+        <textarea name="work_experience" rows="3"></textarea><br>
+        <br>
+
+        <h2>Prior Degrees</h2>
+
+        <p1>BS/BA</p1>
+        <input type="checkbox" name="bachelors" value="1">
+        &nbsp;
+        <p1>GPA:</p1>
+        <input type="number" name="bachelors_gpa" step="0.01" min="0.00" max="4.00">
+        &nbsp;
+        <p1>Major:</p1>
+        <input type="text" name="bachelors_major">
+        &nbsp;
+        <p1>Year:</p1>
+        <input type="number" name="bachelors_grad_year">
+        &nbsp;
+        <p1>University:</p1>
+        <input type="text" name="bachelors_university">
+        <br>
+
+        <br>
+        <p1>MS</p1>
+        <input type="checkbox" name="masters" value="1">
+        &nbsp;
+        <p1>GPA:</p1>
+        <input type="number" name="masters_gpa" step="0.01" min="0.00" max="4.00">
+        &nbsp;
+        <p1>Major:</p1>
+        <input type="text" name="masters_major">
+        &nbsp;
+        <p1>Year:</p1>
+        <input type="number" name="masters_grad_year">
+        &nbsp;
+        <p1>University:</p1>
+        <input type="text" name="masters_university">
+        <br>
+
+        <h2>Recommendation Letter Information</h2>
+        
+        <p1>Recommender Name:</p1>
+        <input type="text" name="recommender_name" required><br>
+
+        <p1>Recommender Email:</p1>
+        <input type="email" name="recommender_email" required><br>
+
+        <p1>Recommender Title:</p1>
+        <input type="text" name="recommender_title"><br>
+
+        <p1>Recommender Affiliation:</p1>
+        <input type="text" name="recommender_affiliation"><br>
+        <br>
+
+        <button type="submit">Submit Application</button>
+    </form>
+    {% if errorMessage == true %}
+    <h3>SSN already exists.</h3><br>
+    {% endif %}
+    <br><a href="/">Home Page</a>
+</body>
+</html>

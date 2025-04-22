@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h2>Applicant Details</h2>
+    <p><strong>Name:</strong> {{ applicant['fname'] }} {{ applicant['lname'] }}</p>
+    <p><strong>Email:</strong> {{ applicant['email'] }}</p>
+    <p><strong>Degree Sought:</strong> {{ applicant['degree_sought'] }}</p>
+    <p><strong>GRE (Verbal/Quant/Subject):</strong> {{ applicant['gre_verbal'] }}/{{ applicant['gre_quantitative'] }}/{{ applicant['gre_subject'] }}</p>
+    <p><strong>Work Experience:</strong> {{ applicant['work_experience'] }}</p>
+
+    <h2>Prior Degrees</h2>
+    {% if prior_degrees %}
+    <p><strong>Bachelor's:</strong> {{ 'Yes' if prior_degrees['bachelors'] else 'No' }} - {{ prior_degrees['bachelors_university'] }} ({{ prior_degrees['bachelors_grad_year'] }}) - GPA: {{ prior_degrees['bachelors_gpa'] }}</p>
+    <p><strong>Master's:</strong> {{ 'Yes' if prior_degrees['masters'] else 'No' }} - {{ prior_degrees['masters_university'] }} ({{ prior_degrees['masters_grad_year'] }}) - GPA: {{ prior_degrees['masters_gpa'] }}</p>
+    {% endif %}
+
+    <h2>Recommendation Letters</h2>
+    {% for rec in recommendations %}
+    <p><strong>From:</strong> {{ rec['recommender_name'] }} - {{ rec['title'] }} @ {{ rec['affiliation'] }}</p>
+    <p><strong>Email:</strong> {{ rec['email'] }}</p>
+    <hr>
+    {% endfor %}
+
+    <h2>Previous Reviews</h2>
+    {% for review in reviews %}
+    <p><strong>Reviewer:</strong> {{ review['reviewer_id'] }}</p>
+    <p><strong>Ranking:</strong> {{ review['ranking'] }}</p>
+    <p><strong>Comments:</strong> {{ review['comments'] }}</p>
+    <p><strong>Advisor:</strong> {{ review['recommended_advisor'] }}</p>
+    <p><strong>Reject Reason:</strong> {{ review['reject_reason'] }}</p>
+    <hr>
+    {% endfor %}
+    <br><a href="/">Home Page</a>
+</body>
+</html>

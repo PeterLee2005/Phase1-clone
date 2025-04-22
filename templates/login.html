@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Login</h1>
+  <form method="post">
+    Username: <input name="username"><br>
+    Password: <input name="password" type="password"><br>
+    <input type="submit" value="Login">
+  </form>
+  {% if errorMessage == true %}
+    <h3>Invalid login, Please try again.</h3><br>
+  {% endif %}
+  <button><a href="{{ url_for('signUp')}}">Sign Up</a></button>
+  <form action="/reset" method="POST">
+    <button type="submit" onclick="return confirm('YOU SURE??')">Reset Database</button>
+  </form>
+
+</body>
+</html>

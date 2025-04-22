@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GS Dashboard</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Graduate Secretary Dashboard</h1>
+  <table border="1">
+    <tr>
+      <th>Applicant ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    {% for applicant in applicants %}
+    <tr>
+      <td>{{ applicant['app_id'] }}</td>
+      <td>{{ applicant['fname'] }} {{ applicant['lname'] }}</td>
+      <td>{{ applicant['email'] }}</td>
+      <td>{{ applicant['application_status'] }}</td>
+      <td><a href="/gs/update_status/{{ applicant['app_id'] }}">Update Status</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="/logout">Logout</a>
+</body>
+</html>

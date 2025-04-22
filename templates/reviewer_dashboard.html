@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reviewer Dashboard</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Faculty Reviewer Dashboard</h1>
+  <table border="1">
+    <tr>
+      <th>Applicant ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Review</th>
+    </tr>
+    {% for applicant in applicants %}
+    <tr>
+      <td>{{ applicant['app_id'] }}</td>
+      <td>{{ applicant['fname'] }} {{ applicant['lname'] }}</td>
+      <td>{{ applicant['email'] }}</td>
+      <td><a href="/review/{{ applicant['app_id'] }}">Submit/Update Review</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="/logout">Logout</a>
+</body>
+</html>

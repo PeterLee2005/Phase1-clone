@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Update Status</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Update Status for {{ applicant['fname'] }} {{ applicant['lname'] }}</h1>
+  <form method="POST">
+    <label for="status">Update Status:</label>
+    <select name="status" required>
+      <option value="Application Incomplete">Application Incomplete</option>
+      <option value="Application Complete and Under Review/No Decision Yet">Complete - Under Review</option>
+      <option value="Congratulations you have been admitted. The formal letter of acceptance will be mailed">Admit</option>
+      <option value="Congratulations you have been admitted with aid!! The formal letter of acceptance will be mailed">Admit With Aid</option>
+      <option value="Your application for admission has been denied">Reject</option>
+    </select>
+  
+    <br><label for="reason">If Incomplete, specify what's missing:</label>
+    <input type="text" name="reason" placeholder="e.g. GRE scores, transcripts">
+  
+    <button type="submit">Update Status</button>
+  </form>
+  <br><a href="/">Home Page</a>
+  
+</body>
+</html>

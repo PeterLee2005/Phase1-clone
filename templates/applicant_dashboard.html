@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Applicant Dashboard</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Welcome Applicant</h1>
+
+  {% if not application_exists %}
+    <a href="/application/new">Start Application</a><br>
+  {% endif %}
+  
+  <a href="/application/status">Check Application Status</a><br>
+  <a href="/logout">Logout</a>
+</body>
+</html>

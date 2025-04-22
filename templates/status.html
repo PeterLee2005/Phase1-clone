@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application Status</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Hello {{ application['fname'] }} {{ application['lname'] }}</h1>
+  <h2>Your current application status is:</h2>
+  <p><strong>{{ application['application_status'] }}</strong></p>
+  <a href="/logout">Logout</a>
+  <br><a href="/">Home Page</a>
+</body>
+</html>

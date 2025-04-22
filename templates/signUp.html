@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up!</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="center">
+    <h1> Enter Username & Password </h1>
+    <form action="/signUp" method="POST">
+        <p1>New Username: </p1><br>
+        <input type="text" name="username"><br>
+        <p1>New Password: </p1><br>
+        <input type="text" name="password"><br>
+        <input type="submit" name="submit">
+    </form><br>
+    {% if errorMessage1 == true %}
+    <h3>Username and password are required.</h3><br>
+    {% endif %}
+    {% if errorMessage2 == true %}
+    <h3>Username already exists. Please choose a different one.</h3><br>
+    {% endif %}
+    <button><a href="{{ url_for('login')}}">Login Page</a></button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Applicant</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Review for {{ applicant['fname'] }} {{ applicant['lname'] }}</h1>
+  <form method="POST">
+    <label for="ranking">Ranking (1-10):</label>
+    <input type="number" name="ranking" min="1" max="10" required value="{{ review.ranking if review else '' }}"><br>
+
+    <label for="comments">Comments:</label><br>
+    <textarea name="comments" rows="4" cols="50">{{ review.comments if review else '' }}</textarea><br>
+
+    <label for="advisor">Recommended Advisor:</label>
+    <input type="text" name="advisor" value="{{ review.recommended_advisor if review else '' }}"><br>
+
+    <label for="reject_reason">Reject Reason Code (optional):</label>
+    <input type="text" name="reject_reason" maxlength="1" value="{{ review.reject_reason if review else '' }}"><br>
+
+    <button type="submit">Submit Review</button>
+  </form><br>
+
+  <a href="/">Home Page</a>
+</body>
+</html>

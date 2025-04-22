@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+  <h1>CAC / Chair Dashboard</h1>
+  <table border="1">
+    <tr>
+      <th>Applicant ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Review</th>
+      <th>Applicant Form</th>
+      <th>Decision</th>
+    </tr>
+    {% for applicant in applicants %}
+    <tr>
+      <td>{{ applicant['app_id'] }}</td>
+      <td>{{ applicant['fname'] }} {{ applicant['lname'] }}</td>
+      <td>{{ applicant['email'] }}</td>
+      <td><a href="/review/{{ applicant['app_id'] }}">Review</a></td>
+      <td><a href="/review/application/{{ applicant['app_id'] }}">Application Form</a></td>
+      <td>
+        <form method="POST" action="/cac/final_decision/{{ applicant['app_id'] }}">
+          <select name="decision" required>
+            <option value="">--Select--</option>
+            <option value="Admit">Admit</option>
+            <option value="Admit With Aid">Admit</option>
+            <option value="Reject">Reject</option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="/logout">Logout</a>
+</body>
+</html>
